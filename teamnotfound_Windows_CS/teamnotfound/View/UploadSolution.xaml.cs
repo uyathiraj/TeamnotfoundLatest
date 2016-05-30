@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using teamnotfound.DataModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,13 +24,12 @@ namespace teamnotfound
     /// </summary>
     public sealed partial class UploadSolution : Page
     {
-       /* private IMobileServiceTable<Project> projectTable = App.MobileService.GetTable<Project>();
-        private MobileServiceCollection<Project, Project> items;
-        private IMobileServiceTable<Category> categoryTable = App.MobileService.GetTable<Category>();
-        private MobileServiceCollection<Category, Category> category;*/
+        
         public UploadSolution()
         {
             this.InitializeComponent();
         }
+        
+        
     }
 }

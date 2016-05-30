@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace teamnotfound.DataModel
 {
-    class Bid
+    public class Bid
     {
         public string Id { get; set; }
         [JsonProperty(PropertyName = "project_id")]

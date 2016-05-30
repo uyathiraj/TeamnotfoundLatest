@@ -101,7 +101,9 @@
     </Compile>
     <Compile Include="DataModel\Bid.cs" />
     <Compile Include="DataModel\Category.cs" />
+    <Compile Include="DataModel\Event.cs" />
     <Compile Include="DataModel\Project.cs" />
+    <Compile Include="DataModel\ProjectCount.cs" />
     <Compile Include="DataModel\Skills.cs" />
     <Compile Include="DataModel\User.cs" />
     <Compile Include="DataModel\UserCred.cs" />
@@ -111,6 +113,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Windows\Visibility.cs" />
     <Compile Include="View\AddSkill.xaml.cs">
       <DependentUpon>AddSkill.xaml</DependentUpon>
     </Compile>
@@ -149,6 +152,9 @@
     </Compile>
     <Compile Include="View\SlidePanel.xaml.cs">
       <DependentUpon>SlidePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UploadSolution.xaml.cs">
+      <DependentUpon>UploadSolution.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +238,10 @@
     <Page Include="View\SlidePanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UploadSolution.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

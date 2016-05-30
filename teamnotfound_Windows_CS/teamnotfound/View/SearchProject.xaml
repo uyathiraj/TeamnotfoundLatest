@@ -9,18 +9,23 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="PROJECTS" HorizontalAlignment="center" FontSize="30" Margin="50" FontWeight="Bold"></TextBlock>
+        <TextBlock Text="EVENTS" HorizontalAlignment="center" FontSize="30" Margin="50" FontWeight="Bold"></TextBlock>
         <ListView Name="gridView" Margin="63,97,63,-76" IsItemClickEnabled="False">
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="data:Project">
-                    <StackPanel HorizontalAlignment="Center" Background="DimGray" Tapped="Project_Tapped">
-                        <TextBlock FontSize="16" Text="{x:Bind Description}"></TextBlock>
-                        <TextBlock x:Name="projectId" FontSize="10" Text="{x:Bind Id}" Visibility="Collapsed"></TextBlock>
+                <DataTemplate  x:DataType="data:Event">
+                    <StackPanel HorizontalAlignment="Center" Background="DimGray" Tapped="Event_Tapped">
+                        <TextBlock x:Name="eventId" FontSize="10" Text="" Visibility="Collapsed"></TextBlock>
+                        <TextBlock FontSize="16" Text="Title: "></TextBlock>
+                        <TextBlock FontSize="16" Text="{x:Bind Event.Title}"></TextBlock>
 
-                        <TextBlock x:Name="projectType" FontSize="10" Text="{x:Bind Type}" Visibility="Collapsed"></TextBlock>
-                        <TextBlock FontSize="10" Text="{x:Bind Bid}"></TextBlock>
-                        <TextBlock FontSize="10" Text="{x:Bind Owner}"></TextBlock>
-                        <TextBlock FontSize="10" Text="{x:Bind Status}"></TextBlock>
+                        <TextBlock FontSize="16" Text="Base Price: "></TextBlock>
+                        <TextBlock FontSize="16" Text="{x:Bind Event.BasePrice}"></TextBlock>
+
+                        <TextBlock FontSize="16" Text="Bidding closes on: "></TextBlock>
+                        <TextBlock FontSize="16" Text="{x:Bind Event.CloseDate}"></TextBlock>
+                        <TextBlock FontSize="10" Text=""></TextBlock>
+                        <TextBlock FontSize="10" Text=""></TextBlock>
+                        <TextBlock FontSize="10" Text=""></TextBlock>
 
                     </StackPanel>
                 </DataTemplate>

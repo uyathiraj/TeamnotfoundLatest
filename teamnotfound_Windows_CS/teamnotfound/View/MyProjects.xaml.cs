@@ -86,7 +86,7 @@ namespace teamnotfound
             }
             else if (text == "Assigned")
             {
-                Frame.Navigate(typeof(UploadSolution));
+                Frame.Navigate(typeof(UploadSolution),pId);
             }
             else
             {

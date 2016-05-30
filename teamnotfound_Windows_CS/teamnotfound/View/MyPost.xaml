@@ -12,7 +12,7 @@
         <TextBlock Text="PROJECTS" HorizontalAlignment="center" FontSize="30" Margin="50" FontWeight="Bold"></TextBlock>
         <ListView x:Name="projectlist" Margin="63,97,63,50"  >
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="data:ProjectCount" >
+                <DataTemplate x:DataType="data:ProjectCount">
                     <StackPanel HorizontalAlignment="Center" Background="DimGray" Tapped="StackPanel_Tapped">
                         <TextBlock FontSize="16" Text="{x:Bind Project.Description}" Tapped="TextBlock_Tapped"></TextBlock>
                         <TextBlock FontSize="10" Text="{x:Bind BidCount}" Tapped="TextBlock_Tapped_1"></TextBlock>

@@ -1,0 +1,17 @@
+App.xbf
+Common\QuickStartTask.xbf
+MainPage.xbf
+View\AddSkill.xbf
+View\Bidding.xbf
+View\DashBoard.xbf
+View\EditProfile.xbf
+View\Login.xbf
+View\MyPost.xbf
+View\MyProjects.xbf
+View\PostProject.xbf
+View\Profile.xbf
+View\ProjectCategories.xbf
+View\Registration.xbf
+View\SearchProject.xbf
+View\SlidePanel.xbf
+View\UploadSolution.xbf
