@@ -29,37 +29,63 @@ namespace teamnotfound.View
         public MyPost()
         {
             this.InitializeComponent();
+            getProjects();
         }
 
         private IMobileServiceTable<Project> projectTable = App.MobileService.GetTable<Project>();
+        private IMobileServiceTable<Bid> bidTable = App.MobileService.GetTable<Bid>();
         private MobileServiceCollection<Project, Project> items;
-        string parameter;
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private MobileServiceCollection<Bid, Bid> bids;
+        private List<ProjectCount> projectCount = new List<ProjectCount>();
+
+        //   private MobileServiceCollection<, Project> items;
+
+
+
+
+        private async void getProjects()
         {
-            parameter = e.Parameter as string;
-            //Debug.Write("param1: " + parameter);
-            getProjects(parameter);
+
+
+            items = await projectTable .Where(Project => Project.Owner == Global.GetRepositoryValue("userName").ToString()).ToCollectionAsync();
+             
+           
+                foreach (var project in items)
+            {
+                
+               
+                Debug.Write(project.Id);
+                bids = await bidTable.Where(Bid => Bid.ProjectId == project.Id.ToString()).ToCollectionAsync();
+
+                Debug.Write("    count "+bids.Count+"    ");
+                var count = new ProjectCount { Project = project, BidCount = (int)bids.Count, Bids = bids.ToList() };
+                projectCount.Add(count);
+            }
+            //gridView.ItemsSource = items;
+            projectlist.ItemsSource = projectCount;
+          //  Global.SetRepositoryValue("MyPost", projectCount);
+
+
         }
 
-        private async void getProjects(String parameter)
-        {
-
-
-            items = await projectTable
-                    .Where(Project => Project.Owner == Global.GetRepositoryValue("userName").ToString())
-                    .ToCollectionAsync();
-            gridView.ItemsSource = items;
-        }
-
-        private void gridView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Debug.Write(" in item clicked ");
-            Debug.Write(e.ToString());
-        }
-
+     
         private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Debug.Write(" in item tabed "+ e.ToString());
+            var index = projectlist.SelectedIndex;
+        //    Global.SetRepositoryValue("selectedProject", index);
+            Debug.WriteLine("Project "+projectCount.ElementAtOrDefault(index).Project.Description +"  "+ projectCount.ElementAtOrDefault(index).BidCount);
+
+
+        }
+
+        private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Debug.WriteLine("in text block one");
+        }
+
+        private void TextBlock_Tapped_1(object sender, TappedRoutedEventArgs e)
+        {
+            Debug.WriteLine("in text block 2");
         }
     }
 }
