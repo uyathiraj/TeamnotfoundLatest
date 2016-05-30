@@ -10,15 +10,12 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock Text="PROJECTS" HorizontalAlignment="center" FontSize="30" Margin="50" FontWeight="Bold"></TextBlock>
-        <ListView Name="gridView" Margin="63,97,63,50"  ItemClick="gridView_ItemClick" >
+        <ListView x:Name="projectlist" Margin="63,97,63,50"  >
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="data:Project">
+                <DataTemplate x:DataType="data:ProjectCount" >
                     <StackPanel HorizontalAlignment="Center" Background="DimGray" Tapped="StackPanel_Tapped">
-                        <TextBlock FontSize="16" Text="{x:Bind Description}"></TextBlock>
-                        <TextBlock FontSize="10" Text="{x:Bind Type}"></TextBlock>
-                        <TextBlock FontSize="10" Text="{x:Bind Bid}"></TextBlock>
-                        <TextBlock FontSize="10" Text="{x:Bind Owner}"></TextBlock>
-                        <TextBlock FontSize="10" Text="{x:Bind Status}"></TextBlock>
+                        <TextBlock FontSize="16" Text="{x:Bind Project.Description}" Tapped="TextBlock_Tapped"></TextBlock>
+                        <TextBlock FontSize="10" Text="{x:Bind BidCount}" Tapped="TextBlock_Tapped_1"></TextBlock>
 
                     </StackPanel>
                 </DataTemplate>

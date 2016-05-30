@@ -22,7 +22,7 @@
             </TextBlock>
             <ComboBox x:Name="type" HorizontalAlignment="Stretch" Margin="10,10,10,0" VerticalAlignment="Top" >
                 <ComboBox.ItemTemplate >
-                    <DataTemplate >
+                    <DataTemplate x:DataType="data:Category">
                         <StackPanel  >
                         <TextBlock Text="{Binding Name}" />
                         </StackPanel>
