@@ -16,7 +16,9 @@
                     <StackPanel x:Name="stkPnl" HorizontalAlignment="Center" Background="Green" Tapped="Category_Tapped">
                         <TextBlock x:Name="categoryName" FontWeight="Bold" Width="400" Height="40" Foreground="White" HorizontalAlignment="center" VerticalAlignment="Center" TextAlignment="Center">
                                 <Run x:Name="descText" Text="{x:Bind Name}"/>
-                                <Run x:Name="countProj" Text="(count)"/>
+                                <Run Text=" ("/>
+                                <Run x:Name="countProj" Text="{x:Bind count}"/>
+                                <Run Text=")"/>
                         </TextBlock>
 
                     </StackPanel>

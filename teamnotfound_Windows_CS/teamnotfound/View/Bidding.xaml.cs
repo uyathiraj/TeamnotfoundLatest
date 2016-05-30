@@ -28,54 +28,86 @@ namespace teamnotfound
         private IMobileServiceTable<Project> projectTable = App.MobileService.GetTable<Project>();
         private MobileServiceCollection<Project, Project> items;
         private IMobileServiceTable<Bid> bidTable = App.MobileService.GetTable<Bid>();
+        private MobileServiceCollection<Bid, Bid> bids;
         List<Project> proj = new List<Project>();
-        string parameter;
+        List<Bid> bid = new List<Bid>();
+        List<String> parameter;
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            parameter = e.Parameter as string;
+            parameter = e.Parameter as List<String>;
             //Debug.Write("param1: " + parameter);
+            
             getProjects(parameter);
         }
         public Bidding()
         {
             this.InitializeComponent();
         }
-        private async void getProjects(string parameter)
+        private async void getProjects(List<String> parameter)
         {
             items = await projectTable
-                    .Where(Project => Project.Id == parameter)
+                    .Where(Project => Project.Id == parameter[0])
                     .ToCollectionAsync();
             proj = items.ToList();
             txtDesc.Text = proj[0].Description;
             txtBid.Text = (proj[0].Bid).ToString();
+
+            if (parameter[1] == "Add")
+            {
+                btnSubmit.Content = "Bid";
+                txtAmount.Text = "";
+                txtTime.Text = "";
+            }
+            else if (parameter[1] == "Update")
+            {
+                btnSubmit.Content = "Update";
+                bids = await bidTable
+                    .Where(Bid => Bid.ProjectId == parameter[0])
+                    .Where(Bid => Bid.Bidder == "diksha.bajaj@hpe.com")
+                    .ToCollectionAsync();
+                bid = bids.ToList();
+                txtAmount.Text = (bid[0].BiddAmt).ToString();
+                txtTime.Text = (bid[0].TimePeriod).ToString();
+
+            }
             //gridView.ItemsSource = items;
         }
 
         private async void button_Click (object sender, RoutedEventArgs e)
         {
-            var bid = new Bid { BiddAmt = Int32.Parse(txtAmount.Text), TimePeriod= Int32.Parse(txtTime.Text),Bidder ="diksha.bajaj@hpe.com", ProjectId = proj[0].Id };
-            await InsertBid(bid);
+            var bidding = new Bid {  BiddAmt = Int32.Parse(txtAmount.Text), TimePeriod = Int32.Parse(txtTime.Text), Bidder = "diksha.bajaj@hpe.com", ProjectId = proj[0].Id };
+
+            if ((btnSubmit.Content).ToString() == "Bid")
+            {
+                await InsertBid(bidding);
+            }
+            else if ((btnSubmit.Content).ToString() == "Update")
+            {
+                bids = await bidTable
+                            .Where(Bid => Bid.ProjectId == proj[0].Id)
+                            .Where(Bid => Bid.Bidder == "diksha.bajaj@hpe.com")
+                            .ToCollectionAsync();
+                bid = bids.ToList();
+                bidding = new Bid { Id = bid[0].Id, BiddAmt = Int32.Parse(txtAmount.Text), TimePeriod = Int32.Parse(txtTime.Text), Bidder = "diksha.bajaj@hpe.com", ProjectId = proj[0].Id };
+
+                await UpdateBid(bidding);
+            }
+            
             Frame.Navigate(typeof(MyProjects));
            
         }
-        private async Task InsertBid(Bid bid)
+        private async Task InsertBid(Bid bidding)
         {
-            // This code inserts a new TodoItem into the database. When the operation completes
-            // and Mobile Apps has assigned an Id, the item is added to the CollectionView
-            await bidTable.InsertAsync(bid);
-
-
-            //await App.MobileService.SyncContext.PushAsync(); // offline sync
+            await bidTable.InsertAsync(bidding);
         }
-       /* private async Task UpdateProject(Project project)
+
+        private async Task UpdateBid(Bid bidding)
         {
-            // This code inserts a new TodoItem into the database. When the operation completes
-            // and Mobile Apps has assigned an Id, the item is added to the CollectionView
-           items = await projectTable
-                            .Where(Project => Project.Id == project.Id)
+           /*bids = await bidTable
+                            .Where(Bid => Bid.ProjectId == bid.ProjectId)
                             .ToCollectionAsync();
-            Project proj = items.FirstOrDefault();
-            await projectTable.UpdateAsync(proj);
-        }*/
+            Bid bd= bids.FirstOrDefault();*/
+            await bidTable.UpdateAsync(bidding);
+        }
     }
 }
