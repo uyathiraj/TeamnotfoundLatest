@@ -8,18 +8,94 @@
     xmlns:data="using:teamnotfound.DataModel"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="PROJECTS" HorizontalAlignment="center" FontSize="30" Margin="50" FontWeight="Bold"></TextBlock>
-        <ListView x:Name="projectlist" Margin="63,97,63,50"  >
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="data:ProjectCount" >
-                    <StackPanel HorizontalAlignment="Center" Background="DimGray" Tapped="StackPanel_Tapped">
-                        <TextBlock FontSize="16" Text="{x:Bind Project.Description}" Tapped="TextBlock_Tapped"></TextBlock>
-                        <TextBlock FontSize="10" Text="{x:Bind BidCount}" Tapped="TextBlock_Tapped_1"></TextBlock>
+    <Grid Background="Gray">
+        <StackPanel VerticalAlignment="Top" Margin="0,0,0,0" Background="#FF060656" >
+            <TextBlock x:Name="Hello"  HorizontalAlignment="Center"   Style="{StaticResource HeaderTextBlockStyle}" TextWrapping="Wrap" Text="Events" Height="75" SelectionHighlightColor="#FF334676"  Foreground="Gray" />
+        </StackPanel>
+
+
+        <StackPanel Background="#FFdddddd"   Margin="10,90,10,10">
+
+            <StackPanel Orientation="Vertical"  Padding="5,5,5,5" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,10,10,0" Background="#FF060656" Tapped="StackPanel_Tapped">
+
+                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Stretch" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+                    <TextBlock FontSize="12" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Bottom" Tapped="TextBlock_Tapped" Text="Title : " ></TextBlock>
+                    <TextBlock FontSize="12"  Foreground="Gray" VerticalAlignment="Bottom" Text="India vs Pakistan" Tapped="TextBlock_Tapped_1"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"   HorizontalAlignment="Stretch" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+
+                    <StackPanel Orientation="Vertical"   HorizontalAlignment="Left" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+
+                        <StackPanel Orientation="Horizontal"   HorizontalAlignment="Stretch" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+                            <TextBlock FontSize="10" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Bottom" Tapped="TextBlock_Tapped" Text="Base Price : " ></TextBlock>
+                            <TextBlock FontSize="11"  Foreground="Gray" VerticalAlignment="Bottom" Text="890" Tapped="TextBlock_Tapped_1"></TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"   HorizontalAlignment="Stretch" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+                            <TextBlock FontSize="10" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Bottom" Tapped="TextBlock_Tapped" Text="Bid Close Date : " ></TextBlock>
+                            <TextBlock FontSize="11"  Foreground="Gray" VerticalAlignment="Bottom" Text="23-June-2016" Tapped="TextBlock_Tapped_1"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="90,0,0,0"  HorizontalAlignment="Stretch" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+
+                        <StackPanel Orientation="Horizontal"   HorizontalAlignment="Left" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+                            <TextBlock FontSize="10" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Bottom" Tapped="TextBlock_Tapped" Text="Bids : " ></TextBlock>
+                            <TextBlock FontSize="11"  Foreground="Gray" VerticalAlignment="Bottom" Text="5" ></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"   HorizontalAlignment="Left" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+                            <TextBlock FontSize="10" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Bottom" Tapped="TextBlock_Tapped" Text="Status : " ></TextBlock>
+                            <TextBlock FontSize="11"  Foreground="Gray" VerticalAlignment="Bottom" Text="Bidding" ></TextBlock>
+                        </StackPanel>
 
                     </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                </StackPanel>
+                
+                
+                
+                
+                
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical"  Padding="5,5,5,5" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,10,10,0" Background="#FF060656" Tapped="StackPanel_Tapped">
+
+                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Stretch" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+                    <TextBlock FontSize="10" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Bottom" Tapped="TextBlock_Tapped" Text="Title : " ></TextBlock>
+                    <TextBlock FontSize="12"  Foreground="Gray" VerticalAlignment="Bottom" Text="masd" Tapped="TextBlock_Tapped_1"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"   HorizontalAlignment="Stretch" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+
+                    <StackPanel Orientation="Vertical"   HorizontalAlignment="Left" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+
+                        <StackPanel Orientation="Horizontal"   HorizontalAlignment="Stretch" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+                            <TextBlock FontSize="10" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Bottom" Tapped="TextBlock_Tapped" Text="Base Price : " ></TextBlock>
+                            <TextBlock FontSize="11"  Foreground="Gray" VerticalAlignment="Bottom" Text="230" Tapped="TextBlock_Tapped_1"></TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"   HorizontalAlignment="Stretch" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+                            <TextBlock FontSize="10" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Bottom" Tapped="TextBlock_Tapped" Text="Bid Close Date : " ></TextBlock>
+                            <TextBlock FontSize="11"  Foreground="Gray" VerticalAlignment="Bottom" Text="23-June-2016" Tapped="TextBlock_Tapped_1"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="90,0,0,0"  HorizontalAlignment="Stretch" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+
+                        <StackPanel Orientation="Horizontal"   HorizontalAlignment="Left" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+                            <TextBlock FontSize="10" FontWeight="Bold"  Foreground="Gray" VerticalAlignment="Bottom" Tapped="TextBlock_Tapped" Text="Bids : " ></TextBlock>
+                            <TextBlock FontSize="11"  Foreground="Gray" VerticalAlignment="Bottom" Text="5" ></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"   HorizontalAlignment="Left" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
+                            <TextBlock FontSize="10" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Bottom" Tapped="TextBlock_Tapped" Text="Status : " ></TextBlock>
+                            <TextBlock FontSize="11"  Foreground="Gray" VerticalAlignment="Bottom" Text="Bidding" ></TextBlock>
+                        </StackPanel>
+
+                    </StackPanel>
+                </StackPanel>
+
+
+
+
+
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Page>

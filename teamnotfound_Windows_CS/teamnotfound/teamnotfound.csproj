@@ -102,6 +102,7 @@
     <Compile Include="DataModel\Bid.cs" />
     <Compile Include="DataModel\Category.cs" />
     <Compile Include="DataModel\Project.cs" />
+    <Compile Include="DataModel\ProjectCount.cs" />
     <Compile Include="DataModel\Skills.cs" />
     <Compile Include="DataModel\User.cs" />
     <Compile Include="DataModel\UserCred.cs" />
@@ -113,6 +114,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\AddSkill.xaml.cs">
       <DependentUpon>AddSkill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AllBids.xaml.cs">
+      <DependentUpon>AllBids.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Bidding.xaml.cs">
       <DependentUpon>Bidding.xaml</DependentUpon>
@@ -184,6 +188,10 @@
     <Page Include="View\AddSkill.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AllBids.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Bidding.xaml">
       <Generator>MSBuild:Compile</Generator>
