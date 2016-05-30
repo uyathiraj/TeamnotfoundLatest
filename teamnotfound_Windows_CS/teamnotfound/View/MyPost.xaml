@@ -60,7 +60,7 @@
 
                 <StackPanel Orientation="Horizontal"  HorizontalAlignment="Stretch" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
                     <TextBlock FontSize="10" FontWeight="Bold" Foreground="Gray" VerticalAlignment="Bottom" Tapped="TextBlock_Tapped" Text="Title : " ></TextBlock>
-                    <TextBlock FontSize="12"  Foreground="Gray" VerticalAlignment="Bottom" Text="masd" Tapped="TextBlock_Tapped_1"></TextBlock>
+                    <TextBlock FontSize="12"  Foreground="Gray" VerticalAlignment="Bottom" Text="India vs South Africa" Tapped="TextBlock_Tapped_1"></TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"   HorizontalAlignment="Stretch" VerticalAlignment="Top"   Tapped="StackPanel_Tapped">
 
