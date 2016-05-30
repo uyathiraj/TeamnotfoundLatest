@@ -23,7 +23,7 @@
                         <StackPanel Orientation="Horizontal">
                             <CheckBox
                                 Width="20" />
-                            <TextBlock Text="{Binding DayOfWeek}"
+                            <TextBlock Text="x:Bind={Country.CountryName}"
                        Width="100" />
                         </StackPanel>
                     </DataTemplate>

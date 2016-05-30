@@ -52,7 +52,7 @@ namespace teamnotfound
             countryBox.ItemsSource = country;
 
         }
-        private async void getProjects(List<String> parameter)
+        /*private async void getProjects(List<String> parameter)
         {
             items = await projectTable
                     .Where(Project => Project.Id == parameter[0])
@@ -116,7 +116,7 @@ namespace teamnotfound
                             .Where(Bid => Bid.ProjectId == bid.ProjectId)
                             .ToCollectionAsync();
             Bid bd= bids.FirstOrDefault();*/
-            await bidTable.UpdateAsync(bidding);
-        }
+            /*await bidTable.UpdateAsync(bidding);
+        }*/
     }
 }

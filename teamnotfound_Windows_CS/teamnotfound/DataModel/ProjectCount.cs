@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace teamnotfound.DataModel
 {
+
     public class ProjectCount
+
+
     {
         public Project Project { set; get; }
         public int BidCount { set; get; }
