@@ -41,6 +41,17 @@
                     <TextBox Header="Last Name"  x:Name="LastNameTextBox" TextWrapping="Wrap" Text="" Background="#FFBFB7B7" Width="250" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" BorderThickness="0"/>
 
                 </StackPanel>
+                <StackPanel Orientation="Vertical" Padding="0,10,0,0" Margin="0">
+                    <TextBlock Text="Register as"  x:Name="RegisterAsText" TextWrapping="Wrap" Width="250" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0"/>
+                    <ComboBox x:Name="comboBox" Width="250" HorizontalAlignment="Stretch"  Background="#FFBFB7B7" VerticalAlignment="Stretch" RenderTransformOrigin="0.556,-14.469"  BorderThickness="0" SelectionChanged="comboBox_SelectionChanged">
+                        <ComboBoxItem Name="Admin">Admin</ComboBoxItem>
+                        <ComboBoxItem Name="User">User</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Visibility="Collapsed" x:Name="AdminKey" Orientation="Vertical" Padding="0,10,0,0" Margin="0">
+                    <TextBox Header="Admin Key" x:Name="AdminKeyTextBox" TextWrapping="Wrap" Text="" Background="#FFBFB7B7" Width="250" VerticalAlignment="Center" BorderThickness="2,2,0,2" HorizontalAlignment="Center" Height="65" Margin="55,0" LostFocus="KeyTextBox_LostFocus"/>
+                    <TextBlock x:Name="AdminKeyErrorTextBox" Foreground="Red" Text="" HorizontalAlignment="Center"></TextBlock>
+                </StackPanel>
                 <StackPanel Orientation="Vertical" Padding="0,10,0,0">
                     <TextBox Header="Mobile No"  x:Name="MobileTextBox" TextWrapping="Wrap" Text="" Background="#FFBFB7B7" Width="250" HorizontalAlignment="Center" Margin="0" LostFocus="MobileTextBox_LostFocus"/>
                     <TextBlock x:Name="MobileErrorTextBox" Foreground="Red" Text="" HorizontalAlignment="Center"></TextBlock>

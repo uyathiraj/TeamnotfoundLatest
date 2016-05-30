@@ -1,6 +1,7 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -45,10 +46,12 @@ namespace TeamNotFound.View
         {
             string userName = UsernameTextBox.Text;
             string password = PasswordTextBox.Password;
-
+            ComboBoxItem typeItem = (ComboBoxItem)comboBox.SelectedItem;
+            string userType = typeItem.Content.ToString();
+            Debug.Write("UserType: " + userType);
             //IMobileServiceTableQuery<string> res = from uc in userCredtable where uc.UserName == "yuyuy" select uc.UserName;
             // userCredtable.Where();
-           // res.IncludeTotalCount;  
+            // res.IncludeTotalCount;  
             //ErrorTextBox.Text = res;
             if (userName == "")
             {
@@ -59,11 +62,14 @@ namespace TeamNotFound.View
                 ErrorTextBox.Text = "Enter the password.";
             }
 
-            var items = await userCredtable.Where(userCred => userCred.UserName == userName).Select(userCred => userCred.Password).ToEnumerableAsync();
+            var items = await userCredtable
+                            .Where(userCred => userCred.UserName == userName)
+                            //.Where(userCred => userCred.Type == userType)
+                            .Select(userCred => userCred.Password).ToEnumerableAsync();
             string pass = items.SingleOrDefault();
             if(pass == password)
             {
-                PassportStatusText.Text = "Account Login Successfull";
+                PassportStatusText.Text = "Account Login Successful";
                
                 Global.SetRepositoryValue("userName",userName);
                 Frame.Navigate(typeof(DashBoard));

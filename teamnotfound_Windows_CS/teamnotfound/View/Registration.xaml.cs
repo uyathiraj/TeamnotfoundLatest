@@ -5,6 +5,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -13,6 +14,7 @@ using teamnotfound;
 using teamnotfound.Common;
 using teamnotfound.DataModel;
 using TeamNotFound.Models;
+using TeamNotFound.View;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -135,6 +137,7 @@ namespace teamnotfound.View
                 await InsertUser(user);
                 Global.SetRepositoryValue("userName", user.Email);
                 await InsertUserCred(userCred);
+                Frame.Navigate(typeof(DashBoard));
             }
         }
 
@@ -142,7 +145,7 @@ namespace teamnotfound.View
         {
             if(FirstNameTextBox.Text == "")
             {
-                FnameErrorTextBox.Text = "First Name can't be empty";
+                FnameErrorTextBox.Text = "Enter First Name";
             }
             else
             {
@@ -154,7 +157,7 @@ namespace teamnotfound.View
         {
             if (MobileTextBox.Text == "")
             {
-                MobileErrorTextBox.Text = "Please provide mobile number";
+                MobileErrorTextBox.Text = "Enter mobile number";
             }
             else
             {
@@ -166,7 +169,7 @@ namespace teamnotfound.View
         {
             if (EmailTextBox.Text == "")
             {
-                EmailErrorTextBox.Text = "Provide email Id";
+                EmailErrorTextBox.Text = "Enter email Id";
             }
             else
             {
@@ -183,6 +186,33 @@ namespace teamnotfound.View
             else
             {
                 PassErrorTextBox.Text = "";
+            }
+        }
+        private void KeyTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (AdminKeyTextBox.Text == "")
+            {
+                AdminKeyErrorTextBox.Text = "Enter the admin key";
+            }
+            else
+            {
+                AdminKeyErrorTextBox.Text = "";
+            }
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // string userType= (sender as ComboBox).SelectedItem as string;
+            ComboBoxItem item = comboBox.SelectedItem as ComboBoxItem;
+            string userType = item.Content.ToString();
+            Debug.Write("User type: " + userType);
+            if (userType == "Admin")
+            {
+                AdminKey.Visibility = Visibility.Visible;
+            }
+            else if (userType == "User")
+            {
+                AdminKey.Visibility = Visibility.Collapsed;
             }
         }
     }
