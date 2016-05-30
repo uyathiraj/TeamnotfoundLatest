@@ -9,31 +9,30 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Bid for a Project" HorizontalAlignment="center" FontSize="30" Margin="50" FontWeight="Bold"></TextBlock>
+        <TextBlock Text="Bid for an Event" HorizontalAlignment="center" FontSize="30" Margin="50" FontWeight="Bold"></TextBlock>
+
+
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Left" Margin="10,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200">
+        	                <Run Text="Countries"/>
+            </TextBlock>
         
-                
-                    <StackPanel HorizontalAlignment="Center">
-                        <TextBlock HorizontalAlignment="Left" Margin="10,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200">
-        	                <Run Text="Project Summary"/>
-                        </TextBlock>
-                        <TextBlock x:Name="txtDesc" FontSize="16" Width="400" HorizontalAlignment="center" TextAlignment="Left"></TextBlock>
-                        <TextBlock HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200">
-        	                <Run Text="Budget"/>
-                        </TextBlock>
-                        <TextBlock x:Name="txtBid" FontSize="16" Width="400" HorizontalAlignment="center" TextAlignment="Left"></TextBlock>
-                        <TextBlock HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250">
-        	                <Run Text="Bidding Amount"/>
-        	                <Run Foreground="Red" Text="*"/>
-                         </TextBlock>
-                         <TextBox  x:Name="txtAmount" FontSize="16" Width="400" HorizontalAlignment="center"></TextBox>
-                         <TextBlock HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250">
-        	               <Run Text="Expected time of completion"/>
-        	               <Run Foreground="Red" Text="*"/>
-                         </TextBlock>
-            <TextBox x:Name="txtTime" FontSize="16" Width="400" HorizontalAlignment="center"></TextBox>
-            <Button x:Name="btnSubmit" Content="Bid" HorizontalAlignment="Center" Margin="40" Width="245" Click="button_Click"/>
-            
+        <ComboBox x:Name="countryBox">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate x:DataType="data:Country">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox
+                                Width="20" />
+                            <TextBlock Text="{Binding DayOfWeek}"
+                       Width="100" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </StackPanel>
+        <Button x:Name="btnSubmit" Content="Bid" HorizontalAlignment="Center" Margin="40" Width="245" Click="button_Click"/>
+            
+        
                
            
             

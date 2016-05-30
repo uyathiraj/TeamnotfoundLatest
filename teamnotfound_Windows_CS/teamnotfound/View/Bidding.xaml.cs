@@ -25,23 +25,32 @@ namespace teamnotfound
     /// </summary>
     public sealed partial class Bidding : Page
     {
-        private IMobileServiceTable<Project> projectTable = App.MobileService.GetTable<Project>();
-        private MobileServiceCollection<Project, Project> items;
+        private IMobileServiceTable<Country> countryTable = App.MobileService.GetTable<Country>();
+        private MobileServiceCollection<Country, Country> items;
         private IMobileServiceTable<Bid> bidTable = App.MobileService.GetTable<Bid>();
         private MobileServiceCollection<Bid, Bid> bids;
-        List<Project> proj = new List<Project>();
+        List<Country> country = new List<Country>();
         List<Bid> bid = new List<Bid>();
         List<String> parameter;
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            parameter = e.Parameter as List<String>;
+            //parameter = e.Parameter as List<String>;
             //Debug.Write("param1: " + parameter);
-            
-            getProjects(parameter);
+            //getProjects(parameter);
+            getCountry();
+
         }
         public Bidding()
         {
             this.InitializeComponent();
+        }
+        private async void getCountry()
+        {
+            items = await countryTable
+                   .ToCollectionAsync();
+            country = items.ToList();
+            countryBox.ItemsSource = country;
+
         }
         private async void getProjects(List<String> parameter)
         {
