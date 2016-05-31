@@ -27,13 +27,13 @@
         		<Run Text="Start Date"/>
         		<Run Foreground="Red" Text="*"/>
             </TextBlock>
-            <DatePicker x:Name="startDate"  HorizontalAlignment="Stretch" Margin="10,10,0,0"/>
+            <DatePicker x:Name="startDate"  HorizontalAlignment="Stretch" Margin="10,10,10,0"/>
 
             <TextBlock x:Name="EndDateText" Foreground="#FF060656" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" >
         		<Run Text="End Date"/>
         		<Run Foreground="Red" Text="*"/>
             </TextBlock>
-            <DatePicker x:Name="endDate" HorizontalAlignment="Stretch" Margin="10,10,0,0"/>
+            <DatePicker x:Name="endDate" HorizontalAlignment="Stretch" Margin="10,10,10,0"/>
 
             <TextBlock Foreground="#FF060656" x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
         		<Run Text="Base Price"/>
@@ -50,7 +50,7 @@
         		<Run Text="Bid End Date"/>
         		<Run Foreground="Red" Text="*"/>
             </TextBlock>
-            <DatePicker x:Name="bidEndDate" HorizontalAlignment="Stretch" Margin="10,10,0,0"/>
+            <DatePicker x:Name="bidEndDate" HorizontalAlignment="Stretch" Margin="10,10,10,0"/>
             
 
             <Button x:Name="button" FontWeight="Bold" Foreground="gray" FontSize="20" Background="#FF060656" Content="Post" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="245" Click="button_Click"/>
