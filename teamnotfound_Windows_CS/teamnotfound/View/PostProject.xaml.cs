@@ -34,7 +34,7 @@ namespace teamnotfound.View
         public PostProject()
         {
             this.InitializeComponent();
-            getCategory();
+        //    getCategory();
         }
 
 
@@ -42,7 +42,7 @@ namespace teamnotfound.View
         {
             items = await categoryTable.ToCollectionAsync();
             
-            type.ItemsSource = items;
+        //    type.ItemsSource = items;
         }
 
 
@@ -59,13 +59,13 @@ namespace teamnotfound.View
 
         private async void button_Click(object sender, RoutedEventArgs e)
         {
-            var selected = type.SelectedIndex;
+       /*     var selected = type.SelectedIndex;
             Debug.Write(selected);
             var selectedValue = items.ElementAtOrDefault(selected);
             Debug.Write(selectedValue.Name+"  "+ selectedValue.Id);
             var project = new Project {  Description = description.Text, Bid = Int32.Parse(bid.Text), Owner = Global.GetRepositoryValue("userName").ToString() , Type= selectedValue.Id, Status="Bidding" };
             await InsertProject(project);
-        
+        */
         }
     }
 }
