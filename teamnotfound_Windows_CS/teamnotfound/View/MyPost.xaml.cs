@@ -62,30 +62,12 @@ namespace teamnotfound.View
                 projectCount.Add(count);
             }
             //gridView.ItemsSource = items;
-            projectlist.ItemsSource = projectCount;
           //  Global.SetRepositoryValue("MyPost", projectCount);
 
 
         }
 
      
-        private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            var index = projectlist.SelectedIndex;
-        //    Global.SetRepositoryValue("selectedProject", index);
-            Debug.WriteLine("Project "+projectCount.ElementAtOrDefault(index).Project.Description +"  "+ projectCount.ElementAtOrDefault(index).BidCount);
-
-
-        }
-
-        private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Debug.WriteLine("in text block one");
-        }
-
-        private void TextBlock_Tapped_1(object sender, TappedRoutedEventArgs e)
-        {
-            Debug.WriteLine("in text block 2");
-        }
+      
     }
 }
